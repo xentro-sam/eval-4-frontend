@@ -14,3 +14,8 @@ export const CREATE_CONTENT_TYPE = {
   url: '/contentTypes',
   method: 'post',
 };
+
+export const GET_CONTENT_TYPE_FIELDS = (id) => ({
+  url: `/contentTypes/${id}/fields`,
+  method: 'get',
+});

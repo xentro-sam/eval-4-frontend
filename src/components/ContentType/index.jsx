@@ -2,21 +2,16 @@ import * as React from 'react';
 import './ContentType.css';
 import PropTypes from 'prop-types';
 import makeRequest from '../../utils/makeRequest';
-import {GET_CONTENT_TYPE_ENTRY as getContentTypeEntry} from '../../constants/apiEndPoints';
+import {GET_CONTENT_TYPE_FIELDS as getContentTypeFields} from '../../constants/apiEndPoints';
 
 export default function ContentType(props) {
   const [fieldCount, setFieldCount] = React.useState(0);
   const [fields, setFields] = React.useState([]);
   React.useEffect(() => {
-    makeRequest(getContentTypeEntry(props.id), {})
+    makeRequest(getContentTypeFields(props.id), {})
         .then((response) => {
-          if (response.length === 0) return;
-          let recievedFields = Object.keys(response[0]);
-          recievedFields = recievedFields.filter((field) => {
-            return field !== 'id' && field !== 'createdAt' && field !== 'updatedAt';
-          });
-          setFields(recievedFields);
-          setFieldCount(recievedFields.length);
+          setFields(response);
+          setFieldCount(response.length);
         });
   }, []);
   const handleClick = () => {
