@@ -6,6 +6,7 @@ export default function LandingPage() {
   const [fields, setFields] = React.useState([]);
   const [containerTitle, setContainerTitle] = React.useState('');
   const [collectionTypes, setCollectionTypes] = React.useState([]);
+  const [contentTypeId, setContentTypeId] = React.useState(0);
   return (
     <div id="landing-page">
       <div id='sidebar'>
@@ -17,10 +18,10 @@ export default function LandingPage() {
         </div>
         <div id="landing-content">
           <div id="container-1">
-            <ContentTypeContainer setFields={setFields} setContainerTitle={setContainerTitle} setCollectionTypes={setCollectionTypes} />
+            <ContentTypeContainer setFields={setFields} setContainerTitle={setContainerTitle} setCollectionTypes={setCollectionTypes} setContentTypeId={setContentTypeId} />
           </div>
           <div id="container-2">
-            <FieldsContainer title={containerTitle} fields={fields} setContainerTitle={setContainerTitle} />
+            <FieldsContainer title={containerTitle} fields={fields} setContainerTitle={setContainerTitle} contentTypeId={contentTypeId} setFields={setFields} />
           </div>
         </div>
       </div>

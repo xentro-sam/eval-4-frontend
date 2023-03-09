@@ -29,7 +29,7 @@ export default function ContentTypeContainer(props) {
         <div id="content-type-container-content-list">
           {contentTypes.map((contentType) => {
             return (
-              <ContentType key={contentType.id} {...contentType} setFields={props.setFields} setContainerTitle={props.setContainerTitle} />
+              <ContentType key={contentType.id} {...contentType} setFields={props.setFields} setContainerTitle={props.setContainerTitle} setContentTypeId={props.setContentTypeId} />
             );
           })}
         </div>
@@ -42,4 +42,5 @@ ContentTypeContainer.propTypes = {
   setFields: PropTypes.func.isRequired,
   setContainerTitle: PropTypes.func.isRequired,
   setCollectionTypes: PropTypes.func.isRequired,
+  setContentTypeId: PropTypes.func.isRequired,
 };

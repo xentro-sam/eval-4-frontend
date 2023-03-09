@@ -17,6 +17,7 @@ export default function ContentType(props) {
   const handleClick = () => {
     props.setFields(fields);
     props.setContainerTitle(props.contentTypeName);
+    props.setContentTypeId(props.id);
   };
 
   return (
@@ -33,4 +34,5 @@ ContentType.propTypes = {
   id: PropTypes.number.isRequired,
   setFields: PropTypes.func.isRequired,
   setContainerTitle: PropTypes.func.isRequired,
+  setContentTypeId: PropTypes.func.isRequired,
 };

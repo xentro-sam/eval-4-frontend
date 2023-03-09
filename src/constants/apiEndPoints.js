@@ -19,3 +19,8 @@ export const GET_CONTENT_TYPE_FIELDS = (id) => ({
   url: `/contentTypes/${id}/fields`,
   method: 'get',
 });
+
+export const UPDATE_CONTENT_TYPE = (id) => ({
+  url: `/contentTypes/${id}`,
+  method: 'put',
+});
