@@ -3,6 +3,8 @@ import {CollectionSidebar, Header, ContentTypeContainer, FieldsContainer} from '
 import './LandingPage.css';
 
 export default function LandingPage() {
+  const [fields, setFields] = React.useState([]);
+  const [containerTitle, setContainerTitle] = React.useState('');
   return (
     <div id="landing-page">
       <div id='sidebar'>
@@ -14,10 +16,10 @@ export default function LandingPage() {
         </div>
         <div id="landing-content">
           <div id="container-1">
-            <ContentTypeContainer />
+            <ContentTypeContainer setFields={setFields} setContainerTitle={setContainerTitle} />
           </div>
           <div id="container-2">
-            <FieldsContainer title="Fields" fields={['Field 1', 'Field 2', 'Field 3']} />
+            <FieldsContainer title={containerTitle} fields={fields} setContainerTitle={setContainerTitle} />
           </div>
         </div>
       </div>

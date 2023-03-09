@@ -6,6 +6,7 @@ import {GET_CONTENT_TYPE_ENTRY as getContentTypeEntry} from '../../constants/api
 
 export default function ContentType(props) {
   const [fieldCount, setFieldCount] = React.useState(0);
+  const [fields, setFields] = React.useState([]);
   React.useEffect(() => {
     makeRequest(getContentTypeEntry(props.id), {})
         .then((response) => {
@@ -14,11 +15,17 @@ export default function ContentType(props) {
           recievedFields = recievedFields.filter((field) => {
             return field !== 'id' && field !== 'createdAt' && field !== 'updatedAt';
           });
+          setFields(recievedFields);
           setFieldCount(recievedFields.length);
         });
   }, []);
+  const handleClick = () => {
+    props.setFields(fields);
+    props.setContainerTitle(props.contentTypeName);
+  };
+
   return (
-    <div id="content-type">
+    <div id="content-type" onClick={handleClick}>
       <div id="content-type-name">{props.contentTypeName}</div>
       <div id="content-type-count">{fieldCount}</div>
 
@@ -29,4 +36,6 @@ export default function ContentType(props) {
 ContentType.propTypes = {
   contentTypeName: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  setFields: PropTypes.func.isRequired,
+  setContainerTitle: PropTypes.func.isRequired,
 };
