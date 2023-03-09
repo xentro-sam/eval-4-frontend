@@ -10,9 +10,15 @@ export default function FieldsContainer(props) {
       <div id="fields-container-header">
         {props.title}
       </div>
+      <div id="fields-count">
+        {props.fields.length} fields
+      </div>
+      <div id="add-field-button">
+        Add Another Field
+      </div>
       <div id="fields-container-content">
         {props.fields.map((field) => {
-          return <Fields fieldName={field} fieldType={'TEXT'} key={uuidv4()} />;
+          return <Fields fieldName={field} fieldType={'Text'} key={uuidv4()} />;
         })
         }
       </div>

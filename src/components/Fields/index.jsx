@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default function Fields(props) {
   return (
-    <div id="field">
+    <div id="field-body">
       <div id="field-name">{props.fieldName}</div>
       <div id="field-type">{props.fieldType}</div>
     </div>
