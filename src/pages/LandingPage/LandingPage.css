@@ -1,5 +1,18 @@
+#landing-page {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(235, 238, 253);
+}
+
 #sidebar {
     width: 20vw;
     height: 100vh;
     background-color: rgb(39, 39, 39);
+}
+
+#main {
+    width: 80vw;
+    height: 100vh;
 }
