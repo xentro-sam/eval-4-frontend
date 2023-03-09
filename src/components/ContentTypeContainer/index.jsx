@@ -4,9 +4,11 @@ import makeRequest from '../../utils/makeRequest';
 import {GET_CONTENT_TYPES} from '../../constants/apiEndPoints';
 import ContentType from '../ContentType';
 import PropTypes from 'prop-types';
+import NewContentTypeModal from '../NewContentTypeModal';
 
 export default function ContentTypeContainer(props) {
   const [contentTypes, setContentTypes] = React.useState([]);
+  const [showModal, setShowModal] = React.useState(false);
   React.useEffect(() => {
     makeRequest(GET_CONTENT_TYPES, {})
         .then((response) => {
@@ -20,9 +22,10 @@ export default function ContentTypeContainer(props) {
 
       </div>
       <div id="content-type-container-content">
-        <div id="add-content-type-button">
+        <div id="add-content-type-button" onClick={() => setShowModal(true)}>
             + New Type
         </div>
+        <NewContentTypeModal show={showModal} onClose={() => setShowModal(false)} />
         <div id="content-type-container-content-list">
           {contentTypes.map((contentType) => {
             return (
