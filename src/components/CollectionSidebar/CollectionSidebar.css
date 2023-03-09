@@ -1,0 +1,25 @@
+#sidebar-header {
+    background-color: rgb(78, 34, 198);
+    font-size: 2vw;
+    color: white;
+    font-weight: 600;
+    padding: 1vw;
+}
+
+#sidebar-content {
+    color: rgb(179, 179, 179);
+    font-size: 1vw;
+    padding: 3vw 1vw;
+    font-weight: 600;
+}
+
+#collection-types {
+    padding-bottom: 3vw;
+}
+
+#content-type-builder {
+    padding: 0 1vw;
+    font-size: 1vw;
+    color: rgb(179, 179, 179);
+    font-weight: 600;
+}
