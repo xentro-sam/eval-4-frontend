@@ -2,6 +2,7 @@ import * as React from 'react';
 import './ContentTypeContainer.css';
 import makeRequest from '../../utils/makeRequest';
 import {GET_CONTENT_TYPES} from '../../constants/apiEndPoints';
+import ContentType from '../ContentType';
 
 export default function ContentTypeContainer() {
   const [contentTypes, setContentTypes] = React.useState([]);
@@ -23,9 +24,7 @@ export default function ContentTypeContainer() {
         <div id="content-type-container-content-list">
           {contentTypes.map((contentType) => {
             return (
-              <div className="content-type-container-content-list-item" key={contentType.id}>
-                {contentType.contentTypeName}
-              </div>
+              <ContentType key={contentType.id} {...contentType} />
             );
           })}
         </div>

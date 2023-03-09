@@ -1,0 +1,11 @@
+#content-type {
+    color: rgb(130, 130, 130);
+    font-size: 1vw;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 1vw;
+    margin: 0.5vw;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
