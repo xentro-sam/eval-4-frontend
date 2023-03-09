@@ -16,3 +16,19 @@
     width: 80vw;
     height: 100vh;
 }
+
+#landing-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#container-1 {
+    height: 100vh;
+    width: 20vw;
+    background-color: rgb(212, 214, 228);
+}
+
+#container-2 {
+    height: 100vh;
+    width: 60vw;
+}
