@@ -11,6 +11,7 @@ export default function ContentTypeContainer(props) {
     makeRequest(GET_CONTENT_TYPES, {})
         .then((response) => {
           setContentTypes(response);
+          props.setCollectionTypes(response);
         });
   }, []);
   return (
@@ -37,4 +38,5 @@ export default function ContentTypeContainer(props) {
 ContentTypeContainer.propTypes = {
   setFields: PropTypes.func.isRequired,
   setContainerTitle: PropTypes.func.isRequired,
+  setCollectionTypes: PropTypes.func.isRequired,
 };

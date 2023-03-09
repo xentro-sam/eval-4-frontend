@@ -17,6 +17,18 @@
     padding-bottom: 3vw;
 }
 
+#collection-types-header {
+    padding-bottom: 1vw;
+}
+
+#collection-types-content > ul {
+    padding: 1vw;
+}
+
+#collection-type-item {
+    margin: 1vw 0;
+}
+
 #content-type-builder {
     padding: 0 1vw;
     font-size: 1vw;
