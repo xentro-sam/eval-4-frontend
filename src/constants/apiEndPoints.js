@@ -9,3 +9,8 @@ export const GET_CONTENT_TYPE_ENTRY = (id) => ({
   url: `/contentTypes/${id}`,
   method: 'get',
 });
+
+export const CREATE_CONTENT_TYPE = {
+  url: '/contentTypes',
+  method: 'post',
+};
