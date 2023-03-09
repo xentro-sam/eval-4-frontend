@@ -13,3 +13,9 @@
 #field-type {
     color: rgb(190, 190, 190);
 }
+
+#field-delete > img {
+    width: 1vw;
+    height: 1vw;
+    cursor: pointer;
+}

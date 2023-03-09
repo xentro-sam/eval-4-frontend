@@ -7,7 +7,6 @@ import NewFieldModal from '../NewFieldModal';
 
 export default function FieldsContainer(props) {
   const [show, setShow] = React.useState(false);
-  console.log(props);
   return (
     <div id="fields-container-body">
       <div id="fields-container-header">
@@ -22,7 +21,7 @@ export default function FieldsContainer(props) {
       <NewFieldModal show={show} onClose={() => setShow(false)} contentTypeId={props.contentTypeId} setFields={props.setFields} />
       <div id="fields-container-content">
         {props.fields.map((field) => {
-          return <Fields fieldName={field} fieldType={'Text'} key={uuidv4()} />;
+          return <Fields fieldName={field} fieldType={'Text'} key={uuidv4()} contentTypeId={props.contentTypeId} />;
         })
         }
       </div>
