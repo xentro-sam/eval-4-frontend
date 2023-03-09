@@ -25,7 +25,7 @@ export default function ContentTypeContainer(props) {
         <div id="add-content-type-button" onClick={() => setShowModal(true)}>
             + New Type
         </div>
-        <NewContentTypeModal show={showModal} onClose={() => setShowModal(false)} setContentTypes={setContentTypes} />
+        <NewContentTypeModal show={showModal} onClose={() => setShowModal(false)} setContentTypes={setContentTypes} setCollectionTypes={props.setCollectionTypes} />
         <div id="content-type-container-content-list">
           {contentTypes.map((contentType) => {
             return (

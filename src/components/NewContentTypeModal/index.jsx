@@ -18,6 +18,7 @@ export default function NewContentTypeModal(props) {
     });
     const updatedContentTypes = await makeRequest(GET_CONTENT_TYPES, {});
     await props.setContentTypes(updatedContentTypes);
+    await props.setCollectionTypes(updatedContentTypes);
   };
   return (
     <div id="new-content-type-modal">
@@ -44,4 +45,5 @@ NewContentTypeModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
   setContentTypes: PropTypes.func.isRequired,
+  setCollectionTypes: PropTypes.func.isRequired,
 };
