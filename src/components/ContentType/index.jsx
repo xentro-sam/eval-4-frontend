@@ -10,8 +10,11 @@ export default function ContentType(props) {
     makeRequest(getContentTypeEntry(props.id), {})
         .then((response) => {
           if (response.length === 0) return;
-          const count = Object.keys(response[0]).length;
-          setFieldCount(count - 3);
+          let recievedFields = Object.keys(response[0]);
+          recievedFields = recievedFields.filter((field) => {
+            return field !== 'id' && field !== 'createdAt' && field !== 'updatedAt';
+          });
+          setFieldCount(recievedFields.length);
         });
   }, []);
   return (
