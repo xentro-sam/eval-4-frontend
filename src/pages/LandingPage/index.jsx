@@ -21,7 +21,7 @@ export default function LandingPage() {
             <ContentTypeContainer setFields={setFields} setContainerTitle={setContainerTitle} setCollectionTypes={setCollectionTypes} setContentTypeId={setContentTypeId} />
           </div>
           <div id="container-2">
-            <FieldsContainer title={containerTitle} fields={fields} setContainerTitle={setContainerTitle} contentTypeId={contentTypeId} setFields={setFields} />
+            {contentTypeId !== 0 &&<FieldsContainer title={containerTitle} fields={fields} setContainerTitle={setContainerTitle} contentTypeId={contentTypeId} setFields={setFields} />}
           </div>
         </div>
       </div>
