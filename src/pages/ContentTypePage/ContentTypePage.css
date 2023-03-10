@@ -1,0 +1,31 @@
+#content-type-page {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(235, 238, 253);
+}
+
+#sidebar {
+    width: 20vw;
+    height: 100vh;
+    background-color: rgb(39, 39, 39);
+}
+
+#content-type-main {
+    width: 80vw;
+    height: 100vh;
+}
+
+#entries-count {
+    font-size: 2vw;
+    font-weight: 600;
+    padding: 1vw 3vw;
+    color: rgb(60, 61, 60);
+}
+
+#content-type-attributes{
+    padding: 1vw;
+    display: flex;
+    justify-content: space-around;
+}

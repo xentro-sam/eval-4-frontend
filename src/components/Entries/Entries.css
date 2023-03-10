@@ -1,0 +1,26 @@
+#entries {
+    padding: 1vw;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 1vw;
+    margin: 2vw 1vw;
+}
+
+#entry-actions {
+    display: flex;
+    flex-direction: row;
+}
+
+#edit-entry, #delete-entry {
+    margin-left: 2vw;
+}
+
+#edit-entry > img, #delete-entry > img {
+    width: 2vw;
+    height: 2vw;
+}
+
+#entry {
+    padding-left: 2.5vw;
+}
