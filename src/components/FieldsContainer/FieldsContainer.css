@@ -6,12 +6,21 @@
 #fields-container-header {
     font-size: 3vw;
     font-weight: 600;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #fields-count {
     font-size: 2vw;
     font-weight: 300;
     padding: 1vw 0;
+}
+
+#container-title-edit > img {
+    width: 2vw;
+    height: 2vw;
+    margin: 0 1vw;
+    cursor: pointer;
 }
 
 #add-field-button {

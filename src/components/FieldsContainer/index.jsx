@@ -4,17 +4,50 @@ import PropTypes from 'prop-types';
 import Fields from '../Fields';
 import {v4 as uuidv4} from 'uuid';
 import NewFieldModal from '../NewFieldModal';
+const editIcon = require('../../assets/user-pencil-write-ui-education@3x.png');
+import makeRequest from '../../utils/makeRequest';
+import {UPDATE_CONTENT_TYPE as updateContentType} from '../../constants/apiEndPoints';
 
 export default function FieldsContainer(props) {
   const [show, setShow] = React.useState(false);
+  const [showEdit, setShowEdit] = React.useState(false);
   const removeField = (field) => {
     const newFields = props.fields.filter((f) => f !== field);
     props.setFields(newFields);
   };
+  const toggleEditBox = () => {
+    setShowEdit(!showEdit);
+  };
+  const handleEditName = () => {
+    const newTitle = document.getElementById('container-title-edit-input').value;
+    if (newTitle) {
+      const data = {
+        contentTypeName: newTitle,
+      };
+      makeRequest(updateContentType(props.contentTypeId), {
+        data,
+      }).then((res) => {
+        props.setContainerTitle(newTitle);
+        setShowEdit(false);
+      });
+    }
+  };
+
   return (
     <div id="fields-container-body">
       <div id="fields-container-header">
-        {props.title}
+        <div id="fields-container-title">
+          {props.title}
+        </div>
+        <div id="container-title-edit">
+          <img src={editIcon} alt="container-title-edit" onClick={toggleEditBox} />
+        </div>
+        {showEdit && (
+          <div>
+            <input type="text" id="container-title-edit-input" placeholder="Enter new title" />
+            <button id="container-title-edit-button" onClick={handleEditName}>Save</button>
+          </div>
+        )}
       </div>
       <div id="fields-count">
         {props.fields.length} fields
@@ -38,4 +71,5 @@ FieldsContainer.propTypes = {
   fields: PropTypes.array,
   contentTypeId: PropTypes.number,
   setFields: PropTypes.func.isRequired,
+  setContainerTitle: PropTypes.func.isRequired,
 };
