@@ -33,6 +33,17 @@ export default function FieldsContainer(props) {
     }
   };
 
+  const renameFields = (oldName, newName) => {
+    const newFields = props.fields.map((field) => {
+      if (field === oldName) {
+        return newName;
+      }
+      return field;
+    });
+    console.log(newFields);
+    props.setFields(newFields);
+  };
+
   return (
     <div id="fields-container-body">
       <div id="fields-container-header">
@@ -58,7 +69,7 @@ export default function FieldsContainer(props) {
       <NewFieldModal show={show} onClose={() => setShow(false)} contentTypeId={props.contentTypeId} setFields={props.setFields} />
       <div id="fields-container-content">
         {props.fields.map((field) => {
-          return <Fields fieldName={field} fieldType={'Text'} key={uuidv4()} contentTypeId={props.contentTypeId} removeField={removeField} />;
+          return <Fields fieldName={field} fieldType={'Text'} key={uuidv4()} contentTypeId={props.contentTypeId} removeField={removeField} renameFields={renameFields} />;
         })
         }
       </div>

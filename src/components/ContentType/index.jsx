@@ -11,7 +11,7 @@ export default function ContentType(props) {
         .then((response) => {
           setFields(response);
         });
-  }, [fields]);
+  }, []);
   const handleClick = () => {
     props.setFields(fields);
     props.setContainerTitle(props.contentTypeName);

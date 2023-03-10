@@ -32,7 +32,7 @@ export const CREATE_CONTENT_TYPE = {
 };
 
 export const GET_CONTENT_TYPE_FIELDS = (id) => ({
-  url: `/contentTypes/${id}/fields`,
+  url: `/contentTypes/${id}/fields/change`,
   method: 'get',
 });
 
@@ -53,5 +53,10 @@ export const CREATE_CONTENT_TYPE_ENTRY = (id) => ({
 
 export const UPDATE_CONTENT_TYPE_ENTRY = (id, entryId) => ({
   url: `/contentTypes/${id}/${entryId}`,
+  method: 'put',
+});
+
+export const UPDATE_CONTENT_FIELD_NAME = (id) => ({
+  url: `/contentTypes/${id}/fields/change`,
   method: 'put',
 });
