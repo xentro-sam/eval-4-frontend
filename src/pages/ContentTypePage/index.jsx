@@ -28,6 +28,10 @@ export default function ContentTypePage() {
           setAttributes([...attributes, ...response]);
         });
   }, []);
+  const removeEntry = (id) => {
+    const newEntries = entries.filter((entry) => entry.id !== id);
+    setEntries(newEntries);
+  };
   const reqAttributes = attributes.slice(0, Math.min(5, attributes.length));
   return (
     <div id="content-type-page">
@@ -58,7 +62,7 @@ export default function ContentTypePage() {
             {
               entries.map((entry) => {
                 return (
-                  <Entries key={uuidv4()} {...entry} reqAttributes={reqAttributes} contentTypeId={Number(contentTypeId)} />
+                  <Entries key={uuidv4()} {...entry} reqAttributes={reqAttributes} contentTypeId={Number(contentTypeId)} removeEntry={removeEntry} />
                 );
               })
             }

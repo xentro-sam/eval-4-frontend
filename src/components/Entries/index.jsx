@@ -9,6 +9,7 @@ import {DELETE_CONTENT_TYPE_ENTRY as deleteContentTypeEntry} from '../../constan
 export default function Entries(props) {
   const handleDelete = async () => {
     await makeRequest(deleteContentTypeEntry(props.contentTypeId, props.id), {});
+    props.removeEntry(props.id);
   };
   return (
     <div id="entries">
@@ -35,4 +36,5 @@ Entries.propTypes = {
   id: PropTypes.number.isRequired,
   reqAttributes: PropTypes.array.isRequired,
   contentTypeId: PropTypes.number.isRequired,
+  removeEntry: PropTypes.func.isRequired,
 };
