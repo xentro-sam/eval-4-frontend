@@ -45,3 +45,8 @@ export const DELETE_CONTENT_TYPE_ENTRY = (id, entryId) => ({
   url: `/contentTypes/${id}/${entryId}`,
   method: 'delete',
 });
+
+export const CREATE_CONTENT_TYPE_ENTRY = (id) => ({
+  url: `/contentTypes/${id}`,
+  method: 'post',
+});

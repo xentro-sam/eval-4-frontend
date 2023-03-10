@@ -35,6 +35,10 @@ export default function ContentTypePage() {
     const newEntries = entries.filter((entry) => entry.id !== id);
     setEntries(newEntries);
   };
+  const createEntry = (data) => {
+    const newEntries = [...entries, data];
+    setEntries(newEntries);
+  };
   const reqAttributes = attributes.slice(0, Math.min(5, attributes.length));
   return (
     <div id="content-type-page">
@@ -53,7 +57,7 @@ export default function ContentTypePage() {
             <div id="add-entry" onClick={() => setShowModal(true)}>
               Add a new entry
             </div>
-            <EntrySideModal show={showModal} onClose={() => setShowModal(false)} contentType={contentTypeName} fields={attributes} />
+            <EntrySideModal show={showModal} onClose={() => setShowModal(false)} contentType={contentTypeName} fields={attributes} createEntry={createEntry} contentTypeId={Number(contentTypeId)} />
           </div>
           <div id="content-type-attributes">
             {reqAttributes.map((attribute) => {
