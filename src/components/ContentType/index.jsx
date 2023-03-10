@@ -5,15 +5,13 @@ import makeRequest from '../../utils/makeRequest';
 import {GET_CONTENT_TYPE_FIELDS as getContentTypeFields} from '../../constants/apiEndPoints';
 
 export default function ContentType(props) {
-  const [fieldCount, setFieldCount] = React.useState(0);
   const [fields, setFields] = React.useState([]);
   React.useEffect(() => {
     makeRequest(getContentTypeFields(props.id), {})
         .then((response) => {
           setFields(response);
-          setFieldCount(response.length);
         });
-  }, []);
+  }, [fields]);
   const handleClick = () => {
     props.setFields(fields);
     props.setContainerTitle(props.contentTypeName);
@@ -23,7 +21,7 @@ export default function ContentType(props) {
   return (
     <div id="content-type" onClick={handleClick}>
       <div id="content-type-name">{props.contentTypeName}</div>
-      <div id="content-type-count">{fieldCount}</div>
+      <div id="content-type-count">{fields.length}</div>
 
     </div>
   );
