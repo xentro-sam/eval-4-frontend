@@ -19,6 +19,7 @@ export default function LoginForm() {
       },
     })
         .then((response) => {
+          localStorage.setItem('token', response.token);
           authRequest(VALIDATE_TOKEN, {
             headers: {
               Authorization: `Bearer ${response.token}`,
@@ -27,12 +28,11 @@ export default function LoginForm() {
         })
         .then((response) => {
           setErrorMessage('');
-          console.log('reached here');
           navigate(CONTENT_TYPE_BUILDER);
         })
         .catch((error) => {
-          console.log(error);
-          setErrorMessage(error.message);
+          localStorage.removeItem('token');
+          setErrorMessage(error.response.data.error);
         });
   };
   return (
