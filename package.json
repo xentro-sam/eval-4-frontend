@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/preset-react": "^7.18.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -21,8 +22,24 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(axios)/)",
+      "node_modules/(?!(<package-name>|<second-package-name>)/)"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "cobertura"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}"
+    ]
   },
   "eslintConfig": {
     "extends": [

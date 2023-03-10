@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentType should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    id="content-type"
+  >
+    <div
+      id="content-type-name"
+    >
+      mock title 1
+    </div>
+    <div
+      id="content-type-count"
+    >
+      3
+    </div>
+  </div>
+</DocumentFragment>
+`;
