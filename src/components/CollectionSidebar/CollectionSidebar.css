@@ -19,6 +19,7 @@
 
 #collection-types-header {
     padding-bottom: 1vw;
+    cursor: pointer;
 }
 
 #collection-types-content > ul {
@@ -28,6 +29,7 @@
 #collection-type-item {
     margin: 1vw 0;
     color: rgb(89, 89, 89);
+    cursor: pointer;
 }
 
 #content-type-builder {
@@ -35,4 +37,5 @@
     font-size: 1vw;
     color: rgb(179, 179, 179);
     font-weight: 600;
+    cursor: pointer;
 }

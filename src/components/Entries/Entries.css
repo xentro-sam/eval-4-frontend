@@ -19,6 +19,7 @@
 #edit-entry > img, #delete-entry > img {
     width: 2vw;
     height: 2vw;
+    cursor: pointer;
 }
 
 #entry {
