@@ -6,6 +6,8 @@ import {
   GET_CONTENT_TYPES,
   GET_CONTENT_TYPE_ENTRY as getContentTypeEntry,
   GET_CONTENT_TYPE_FIELDS as getContentTypeFields,
+  CREATE_CONTENT_TYPE_ENTRY as createContentTypeEntry,
+  UPDATE_CONTENT_TYPE_ENTRY as updateContentTypeEntry,
 } from '../../constants/apiEndPoints';
 import {useParams} from 'react-router-dom';
 import {v4 as uuidv4} from 'uuid';
@@ -39,6 +41,15 @@ export default function ContentTypePage() {
     const newEntries = [...entries, data];
     setEntries(newEntries);
   };
+  const updateEntry = (data) => {
+    const newEntries = entries.map((entry) => {
+      if (entry.id === data.id) {
+        return data;
+      }
+      return entry;
+    });
+    setEntries(newEntries);
+  };
   const reqAttributes = attributes.slice(0, Math.min(5, attributes.length));
   return (
     <div id="content-type-page">
@@ -57,7 +68,7 @@ export default function ContentTypePage() {
             <div id="add-entry" onClick={() => setShowModal(true)}>
               Add a new entry
             </div>
-            <EntrySideModal show={showModal} onClose={() => setShowModal(false)} contentType={contentTypeName} fields={attributes} createEntry={createEntry} contentTypeId={Number(contentTypeId)} />
+            <EntrySideModal show={showModal} onClose={() => setShowModal(false)} contentType={contentTypeName} fields={attributes} createEntry={createEntry} contentTypeId={Number(contentTypeId)} api={createContentTypeEntry} task="New" />
           </div>
           <div id="content-type-attributes">
             {reqAttributes.map((attribute) => {
@@ -75,7 +86,7 @@ export default function ContentTypePage() {
             {
               entries.map((entry) => {
                 return (
-                  <Entries key={uuidv4()} {...entry} reqAttributes={reqAttributes} contentTypeId={Number(contentTypeId)} removeEntry={removeEntry} />
+                  <Entries key={uuidv4()} {...entry} reqAttributes={reqAttributes} contentTypeId={Number(contentTypeId)} removeEntry={removeEntry} contentTypeName={contentTypeName} fields={attributes} updateEntry={updateEntry} api={updateContentTypeEntry} />
                 );
               })
             }

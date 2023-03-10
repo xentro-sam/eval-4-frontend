@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './EntrySideModal.css';
 import PropTypes from 'prop-types';
-import {CREATE_CONTENT_TYPE_ENTRY as createContentTypeEntry} from '../../constants/apiEndPoints';
 import makeRequest from '../../utils/makeRequest';
 
 export default function EntrySideModal(props) {
@@ -13,20 +12,31 @@ export default function EntrySideModal(props) {
     const inputs = document.querySelectorAll('#side-modal-input input');
     const data = {};
     inputs.forEach((input) => {
+      if (input.value === '') {
+        return;
+      }
       data[input.parentNode.querySelector('#side-modal-input-title').innerHTML] = input.value;
     });
-    makeRequest(createContentTypeEntry(props.contentTypeId), {
-      data,
-    }).then((response) => {
-      props.createEntry(response);
-    });
+    if (props.task === 'New') {
+      makeRequest(props.api(props.contentTypeId), {
+        data,
+      }).then((response) => {
+        props.createEntry(response);
+      });
+    } else {
+      makeRequest(props.api(props.contentTypeId, props.postId), {
+        data,
+      }).then((response) => {
+        props.updateEntry(response);
+      });
+    }
   };
 
   return (
     <div id="entry-side-modal">
       <div id="side-modal-content">
         <div id="side-modal-title">
-            New {props.contentType}
+          {props.task} {props.contentType}
         </div>
         <div id="side-modal-inputs">
           {props.fields.map((field) => {
@@ -53,5 +63,9 @@ EntrySideModal.propTypes = {
   contentTypeId: PropTypes.number.isRequired,
   fields: PropTypes.array.isRequired,
   onClose: PropTypes.func.isRequired,
-  createEntry: PropTypes.func.isRequired,
+  createEntry: PropTypes.func,
+  updateEntry: PropTypes.func,
+  api: PropTypes.func.isRequired,
+  task: PropTypes.string.isRequired,
+  postId: PropTypes.number,
 };

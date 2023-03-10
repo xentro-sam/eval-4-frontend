@@ -50,3 +50,8 @@ export const CREATE_CONTENT_TYPE_ENTRY = (id) => ({
   url: `/contentTypes/${id}`,
   method: 'post',
 });
+
+export const UPDATE_CONTENT_TYPE_ENTRY = (id, entryId) => ({
+  url: `/contentTypes/${id}/${entryId}`,
+  method: 'put',
+});
