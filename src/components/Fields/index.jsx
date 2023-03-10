@@ -2,6 +2,7 @@ import * as React from 'react';
 import './Fields.css';
 import PropTypes from 'prop-types';
 import deleteIcon from '../../assets/trash-delete-recycle-bin-bucket-waste@3x.png';
+import editIcon from '../../assets/user-pencil-write-ui-education@3x.png';
 import makeRequest from '../../utils/makeRequest';
 import {UPDATE_CONTENT_TYPE as updateContentType} from '../../constants/apiEndPoints';
 
@@ -19,8 +20,13 @@ export default function Fields(props) {
     <div id="field-body">
       <div id="field-name">{props.fieldName}</div>
       <div id="field-type">{props.fieldType}</div>
-      <div id="field-delete">
-        <img src={deleteIcon} alt="delete-icon" onClick={handleDelete} />
+      <div id="field-actions">
+        <div id="field-delete">
+          <img src={deleteIcon} alt="delete-icon" onClick={handleDelete} />
+        </div>
+        <div id="field-edit">
+          <img src={editIcon} alt="edit-icon" />
+        </div>
       </div>
     </div>
   );

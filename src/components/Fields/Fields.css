@@ -14,8 +14,13 @@
     color: rgb(190, 190, 190);
 }
 
-#field-delete > img {
+#field-actions {
+    display: flex;
+}
+
+#field-delete > img, #field-edit > img {
     width: 1vw;
     height: 1vw;
     cursor: pointer;
+    padding: 0 1vw;
 }
