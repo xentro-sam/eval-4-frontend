@@ -3,8 +3,15 @@ import './Entries.css';
 import PropTypes from 'prop-types';
 const editIcon = require('../../assets/user-pencil-write-ui-education@3x.png');
 const deleteIcon = require('../../assets/trash-delete-recycle-bin-bucket-waste@3x.png');
+import makeRequest from '../../utils/makeRequest';
+import {DELETE_CONTENT_TYPE_ENTRY as deleteContentTypeEntry} from '../../constants/apiEndPoints';
 
 export default function Entries(props) {
+  const handleDelete = () => {
+    makeRequest(deleteContentTypeEntry(props.contentTypeId, props.id), {}).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <div id="entries">
       {props.reqAttributes.map((attribute) => {
@@ -19,7 +26,7 @@ export default function Entries(props) {
           <img src={editIcon} alt="edit" />
         </div>
         <div id="delete-entry">
-          <img src={deleteIcon} alt="delete" />
+          <img src={deleteIcon} alt="delete" onClick={handleDelete} />
         </div>
       </div>
     </div>
@@ -29,4 +36,5 @@ export default function Entries(props) {
 Entries.propTypes = {
   id: PropTypes.number.isRequired,
   reqAttributes: PropTypes.array.isRequired,
+  contentTypeId: PropTypes.number.isRequired,
 };

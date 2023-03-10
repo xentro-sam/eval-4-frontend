@@ -58,7 +58,7 @@ export default function ContentTypePage() {
             {
               entries.map((entry) => {
                 return (
-                  <Entries key={uuidv4()} {...entry} reqAttributes={reqAttributes} />
+                  <Entries key={uuidv4()} {...entry} reqAttributes={reqAttributes} contentTypeId={Number(contentTypeId)} />
                 );
               })
             }

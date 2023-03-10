@@ -24,3 +24,8 @@ export const UPDATE_CONTENT_TYPE = (id) => ({
   url: `/contentTypes/${id}`,
   method: 'put',
 });
+
+export const DELETE_CONTENT_TYPE_ENTRY = (id, entryId) => ({
+  url: `/contentTypes/${id}/${entryId}`,
+  method: 'delete',
+});
