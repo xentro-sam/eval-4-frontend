@@ -62,3 +62,9 @@
     color: white;
     text-align: center;
 }
+
+#login-error-message {
+    color: red;
+    font-size: 1vw;
+    font-weight: 600;
+}

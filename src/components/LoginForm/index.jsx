@@ -1,8 +1,40 @@
 import * as React from 'react';
 import './LoginForm.css';
 const loginImage = require('../../assets/undraw-upload-re-pasx@3x.png');
+import authRequest from '../../utils/authUtil';
+import {LOGIN, VALIDATE_TOKEN} from '../../constants/apiEndPoints';
+import {useNavigate} from 'react-router';
+import {CONTENT_TYPE_BUILDER} from '../../constants/routes';
 
 export default function LoginForm() {
+  const [errorMessage, setErrorMessage] = React.useState('');
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    authRequest(LOGIN, {
+      data: {
+        email:
+          document.getElementById('login-form-inputs').children[0].value,
+        password:
+          document.getElementById('login-form-inputs').children[1].value,
+      },
+    })
+        .then((response) => {
+          authRequest(VALIDATE_TOKEN, {
+            headers: {
+              Authorization: `Bearer ${response.token}`,
+            },
+          });
+        })
+        .then((response) => {
+          setErrorMessage('');
+          console.log('reached here');
+          navigate(CONTENT_TYPE_BUILDER);
+        })
+        .catch((error) => {
+          console.log(error);
+          setErrorMessage(error.message);
+        });
+  };
   return (
     <div id="login">
       <div id="login-image">
@@ -21,7 +53,8 @@ export default function LoginForm() {
         <div id="login-form-inputs">
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <div id="login-button">Login</div>
+          <div id="login-button" onClick={handleLogin}>Login</div>
+          {errorMessage && <div id="login-error-message">{errorMessage}</div>}
         </div>
       </div>
     </div>
