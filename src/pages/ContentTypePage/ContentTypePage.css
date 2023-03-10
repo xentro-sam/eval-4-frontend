@@ -17,6 +17,18 @@
     height: 100vh;
 }
 
+#content-type-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#add-entry {
+    font-size: 2vw;
+    font-weight: 600;
+    color: rgb(78, 34, 198);
+    padding: 1vw 3vw;
+}
+
 #entries-count {
     font-size: 2vw;
     font-weight: 600;

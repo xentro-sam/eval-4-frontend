@@ -3,8 +3,11 @@ import './CollectionSidebar.css';
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router';
 import {CONTENT_TYPE_BUILDER, CONTENT_TYPE} from '../../constants/routes';
+import makeRequest from '../../utils/makeRequest';
+import {GET_CONTENT_TYPES} from '../../constants/apiEndPoints';
 
 export default function CollectionSidebar(props) {
+  const [collectionTypes, setCollectionTypes] = React.useState([]);
   const navigate = useNavigate();
   const navigateToContentBuilder = () => {
     navigate(CONTENT_TYPE_BUILDER);
@@ -13,6 +16,12 @@ export default function CollectionSidebar(props) {
     const url = CONTENT_TYPE.replace(':contentTypeId', id);
     navigate(url);
   };
+  React.useEffect(() => {
+    makeRequest(GET_CONTENT_TYPES, {})
+        .then((response) => {
+          setCollectionTypes(response);
+        });
+  }, []);
   return (
     <div id="collection-sidebar">
       <div id="sidebar-header">
@@ -25,7 +34,7 @@ export default function CollectionSidebar(props) {
           </div>
           <div id="collection-types-content">
             <ul>
-              {props.collectionTypes.map((collectionType) => {
+              {collectionTypes.map((collectionType) => {
                 return (
                   <li key={collectionType.id} id="collection-type-item" onClick={() => navigateToContentType(collectionType.id)}>{collectionType.contentTypeName}</li>
                 );

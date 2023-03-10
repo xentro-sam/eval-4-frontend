@@ -14,7 +14,7 @@ export default function LandingPage() {
       </div>
       <div id="main">
         <div id="header">
-          <Header />
+          <Header title="Content Types" />
         </div>
         <div id="landing-content">
           <div id="container-1">

@@ -1,10 +1,15 @@
 import * as React from 'react';
 import './Header.css';
+import PropTypes from 'prop-types';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div id="header-title">
-        Content Types
+      {props.title}
     </div>
   );
 }
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+};
