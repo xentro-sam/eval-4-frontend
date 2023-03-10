@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentType should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    id="entry-side-modal"
+  >
+    <div
+      id="side-modal-content"
+    >
+      <div
+        id="side-modal-title"
+      >
+        New mock title 1
+      </div>
+      <div
+        id="side-modal-inputs"
+      >
+        <div
+          id="side-modal-input"
+        >
+          <div
+            id="side-modal-input-title"
+          >
+            name
+          </div>
+          <input
+            type="text"
+          />
+        </div>
+        <div
+          id="side-modal-input"
+        >
+          <div
+            id="side-modal-input-title"
+          >
+            description
+          </div>
+          <input
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        id="side-modal-buttons"
+      >
+        <div
+          id="side-modal-cancel"
+        >
+          Cancel
+        </div>
+        <button
+          id="side-modal-create"
+          type="submit"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

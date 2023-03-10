@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentType should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    id="entries"
+  >
+    <div
+      id="entry"
+    >
+      name
+    </div>
+    <div
+      id="entry"
+    >
+      description
+    </div>
+    <div
+      id="entry-actions"
+    >
+      <div
+        id="edit-entry"
+      >
+        <img
+          alt="edit"
+          src="user-pencil-write-ui-education@3x.png"
+        />
+      </div>
+      <div
+        id="delete-entry"
+      >
+        <img
+          alt="delete"
+          src="trash-delete-recycle-bin-bucket-waste@3x.png"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

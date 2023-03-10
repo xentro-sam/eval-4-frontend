@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentType should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    id="new-content-type-modal"
+  >
+    <div
+      id="modal-content"
+    >
+      <div
+        id="modal-title"
+      >
+        Create a new content type
+      </div>
+      <div
+        id="modal-subtitle"
+      >
+        Name of the content type
+      </div>
+      <div
+        id="modal-input"
+      >
+        <input
+          type="text"
+        />
+      </div>
+      <div
+        id="modal-buttons"
+      >
+        <div
+          id="modal-cancel"
+        >
+          Cancel
+        </div>
+        <button
+          id="modal-create"
+          type="submit"
+        >
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
