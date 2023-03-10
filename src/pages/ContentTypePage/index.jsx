@@ -41,14 +41,11 @@ export default function ContentTypePage() {
     const newEntries = [...entries, data];
     setEntries(newEntries);
   };
-  const updateEntry = (data) => {
-    const newEntries = entries.map((entry) => {
-      if (entry.id === data.id) {
-        return data;
-      }
-      return entry;
-    });
-    setEntries(newEntries);
+  const updateEntry = () => {
+    makeRequest(getContentTypeEntry(contentTypeId), {})
+        .then((response) => {
+          setEntries(response);
+        });
   };
   const reqAttributes = attributes.slice(0, Math.min(5, attributes.length));
   return (

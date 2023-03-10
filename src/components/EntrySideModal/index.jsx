@@ -2,6 +2,7 @@ import * as React from 'react';
 import './EntrySideModal.css';
 import PropTypes from 'prop-types';
 import makeRequest from '../../utils/makeRequest';
+import {v4 as uuidv4} from 'uuid';
 
 export default function EntrySideModal(props) {
   if (!props.show) {
@@ -27,7 +28,7 @@ export default function EntrySideModal(props) {
       makeRequest(props.api(props.contentTypeId, props.postId), {
         data,
       }).then((response) => {
-        props.updateEntry(response);
+        props.updateEntry();
       });
     }
   };
@@ -41,7 +42,7 @@ export default function EntrySideModal(props) {
         <div id="side-modal-inputs">
           {props.fields.map((field) => {
             return field !== 'id' && (
-              <div id="side-modal-input" key={field}>
+              <div id="side-modal-input" key={uuidv4()}>
                 <div id="side-modal-input-title">{field}</div>
                 <input type="text" />
               </div>
