@@ -7,10 +7,8 @@ import makeRequest from '../../utils/makeRequest';
 import {DELETE_CONTENT_TYPE_ENTRY as deleteContentTypeEntry} from '../../constants/apiEndPoints';
 
 export default function Entries(props) {
-  const handleDelete = () => {
-    makeRequest(deleteContentTypeEntry(props.contentTypeId, props.id), {}).then((res) => {
-      console.log(res);
-    });
+  const handleDelete = async () => {
+    await makeRequest(deleteContentTypeEntry(props.contentTypeId, props.id), {});
   };
   return (
     <div id="entries">
