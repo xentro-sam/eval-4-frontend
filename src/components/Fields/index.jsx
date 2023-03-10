@@ -6,6 +6,7 @@ import makeRequest from '../../utils/makeRequest';
 import {UPDATE_CONTENT_TYPE as updateContentType} from '../../constants/apiEndPoints';
 
 export default function Fields(props) {
+  console.log(props);
   const handleDelete = async () => {
     await makeRequest(updateContentType(props.contentTypeId), {
       data: {
@@ -13,6 +14,7 @@ export default function Fields(props) {
         operation: 'remove',
       },
     });
+    props.removeField(props.fieldName);
   };
   return (
     <div id="field-body">
@@ -29,4 +31,5 @@ Fields.propTypes = {
   fieldName: PropTypes.string.isRequired,
   fieldType: PropTypes.string.isRequired,
   contentTypeId: PropTypes.number.isRequired,
+  removeField: PropTypes.func.isRequired,
 };
